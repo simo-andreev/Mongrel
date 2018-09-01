@@ -1,5 +1,7 @@
-package bg.o.sim
+package bg.o.sim.web
 
+import bg.o.sim.BaseEntity
+import bg.o.sim.CrudApiController
 import bg.o.sim.web.BaseEntity
 import bg.o.sim.web.CrudApiController
 import org.springframework.beans.factory.annotation.Autowired
