@@ -1,4 +1,4 @@
-package bg.o.sim
+package bg.o.sim.web
 
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
@@ -9,11 +9,6 @@ import javax.validation.Valid
 abstract class CrudApiController<T : BaseEntity>(
         private val repo: MongoRepository<T, String>
 ) {
-
-    companion object {
-        val test1 = Test("Test").apply { this.id = "1" }
-        val test2 = Test("Test").apply { this.id = "2" }
-    }
 
     @RequestMapping(path = ["/all"], method = [RequestMethod.GET])
     fun fetchAll(): MutableList<T> = repo.findAll()
@@ -34,8 +29,7 @@ abstract class CrudApiController<T : BaseEntity>(
 
 }
 
-abstract class BaseEntity{
-        @Id var id : String? = null
+abstract class BaseEntity {
+    @Id
+    var id: String? = null
 }
-
-data class Test(val name: String) : BaseEntity()
