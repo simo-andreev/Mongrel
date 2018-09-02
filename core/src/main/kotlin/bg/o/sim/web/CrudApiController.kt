@@ -1,5 +1,6 @@
 package bg.o.sim.web
 
+import bg.o.sim.annotation.ExposedModel
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.repository.MongoRepository
@@ -33,3 +34,8 @@ abstract class BaseEntity {
     @Id
     var id: String? = null
 }
+
+@ExposedModel("failure")
+data class Failure(
+        var isAbsolute: Boolean
+) : BaseEntity()

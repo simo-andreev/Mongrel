@@ -16,7 +16,7 @@ interface TransactRepo : MongoRepository<Transaction, String>
 
 
 @RestController
-@RequestMapping("transact")
+@RequestMapping(value = ["transact"])
 class TransactionApi(@Autowired repo: TransactRepo) : CrudApiController<Transaction>(repo)
 
 
