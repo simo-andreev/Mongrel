@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "2c844d9c-ab3f-475c-8303-89afdf77a92e",
+		"name": "AnnaWave",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "addLoginPerson",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"loanApplicationCount\": 70,\n    \"loanCount\": 208,\n    \"accountCount\": 53,\n    \"tasks\": [\n        {\n            \"status\": \"rejected\",\n            \"type\": \"LoanApplication\",\n            \"client\": {\n                \"firstName\": \"Nameington1\",\n                \"lastName\": \"Namerson1\",\n                \"phoneNumber\": \"0-000-000-001\"\n            }\n        },\n        {\n            \"status\": \"confirmed\",\n            \"type\": \"Loan\",\n            \"client\": {\n                \"firstName\": \"Nameington2\",\n                \"lastName\": \"Namerson2\",\n                \"phoneNumber\": \"0-000-000-00\"\n            }\n        },\n        {\n            \"status\": \"for approval\",\n            \"type\": \"Account\",\n            \"client\": {\n                \"firstName\": \"Nameington3\",\n                \"lastName\": \"Namerson3\",\n                \"phoneNumber\": \"0-000-000-003\"\n            }\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "192.168.1.7:19000/login/save",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"7"
+					],
+					"port": "19000",
+					"path": [
+						"login",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addTask",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"rejected\",\n    \"type\": \"LoanApplication\",\n    \"client\": {\n        \"firstName\": \"Nameington1\",\n        \"lastName\": \"Namerson1\",\n        \"phoneNumber\": \"0-000-000-001\"\n    }\n}"
+				},
+				"url": {
+					"raw": "192.168.1.7:19000/task/save",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"7"
+					],
+					"port": "19000",
+					"path": [
+						"task",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addClient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Nameington1\",\n    \"lastName\": \"Namerson1\",\n    \"phoneNumber\": \"0-000-000-001\"\n}"
+				},
+				"url": {
+					"raw": "192.168.1.7:19000/client/save",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"7"
+					],
+					"port": "19000",
+					"path": [
+						"client",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllLoginPerson",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "192.168.1.7:19000/login/all",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"7"
+					],
+					"port": "19000",
+					"path": [
+						"login",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
