@@ -9,6 +9,7 @@
 
 ## Patch goals:
 - []  Unit tests
+- []  Add up-to-date dokka configs
 
 ## Minor-v goals:
 - [x]  Add an annotation super-class to @ExposedModel - @PersistedModel - that only stores
