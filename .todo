@@ -1,21 +1,37 @@
-## Format defined as per https://github.com/matthewpalmer/.todo
+## Format based on https://github.com/matthewpalmer/.todo
+## * With some added spice:
+##      - `~` box-mark - marks a `To` that is being actively 'Do'-ed
+##      - `-` line prefix - defines a MUST-do to-do
+##      - `+` line prefix - defines a MIGHT-do to-do
+##      - `##` line prefix - defines a section and should contain a title sting
+## --------------------------------------------------------------------------------------##
 ## TODOs for the whole project in general -i.e. features, refactor and version goals etc ##
 
 ## Chores:
-- [x] Documentation
-- []  Unit tests
-- []  Any other tests?
+- []  Documentation (Review, now that it has sat for 3 years and I can view it as essentially sth written by another person)
+- []  Integration tests? Yes? No? Maybe?
 - []  README.md
+- []  GaF v.002 - detailed function description
+- []  CI/CD (Check what GitHub offers nowadays?)
+- []  Issue tracker (JB Hub/YouTrack/Space/etc and are nice and all, but GitHub Issues will prolly be easier and I just need it so I can play-pretend that I'm doing sth of value here and not just faffing-about in IntelliJ :I )
 
 ## Patch goals:
 - []  Unit tests
 - []  Add up-to-date dokka configs
 
 ## Minor-v goals:
-- [x]  Add an annotation super-class to @ExposedModel - @PersistedModel - that only stores
+- [x] Add an annotation super-class to @ExposedModel - @PersistedModel - that only stores
         (and I guess provides an internal CRUD API) - i.e. does not add @RestController to the Repo//Api class
 + []  Add an optional - mappedBy : KClass//Class - parameter to @ExposedModel that lets user provide CrudApi sub-class
-        implementing custom persistence and exposure logic
+        implementing custom persistence and exposure logic (GaF#3)
 
 ## Major-v goals:
-- []  Implement (optional) security and authentication
+- []  Implement (optional) security and authentication (GaF#6)
++ []  Implement (optional) security and authentication per-model/action combo (GaF#6)
+- []  Implement (optional) business logic layer in CRUD (GaF#2)
+- []  Implement (optional) business logic layer in REST (GaF#3)
+- []  Implement Model versioning and Migration support (GaF#5)
+- []  Allow external Mongo instance (GaF#4)
+- []  Allow auto-propping internal Mongo instance (GaF#4)
+- []  Update deployment shit
++ []  Update package name to simo-andreev.dev?
