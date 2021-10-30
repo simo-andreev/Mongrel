@@ -5,19 +5,18 @@ version '0.2.0'
 
 buildscript {
     ext {
-        kotlinVersion = '1.2.70'
-        springBootVersion = '2.0.4.RELEASE'
-        dokkaVersion = '0.9.17'
+        kotlinVersion = '1.5.31'
+        springBootVersion = '2.5.6'
+        dokkaVersion = '1.4.30'
     }
     repositories {
-        jcenter()
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
         classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
-        classpath("org.jetbrains.dokka:dokka-android-gradle-plugin:$dokkaVersion")
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:${dokkaVersion}")
     }
 }
 
@@ -25,23 +24,7 @@ allprojects {
     apply plugin: 'org.jetbrains.dokka'
 
     repositories {
-        jcenter()
         mavenCentral()
-    }
-
-    // Kotlin docs tool global config
-    dokka {
-        outputFormat = 'gfm' // gfm == GitHub flavored markdown
-        outputDirectory = "${buildDir}/kotlinDocs"
-
-        includeNonPublic = true
-        skipDeprecated = false
-
-        // Emit warnings about not documented members.
-        reportUndocumented = true
-
-        // Default documentation link to kotlin-stdlib
-        noStdlibLink = false
     }
 }
 
