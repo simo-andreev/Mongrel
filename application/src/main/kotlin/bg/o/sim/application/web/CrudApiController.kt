@@ -1,25 +1,10 @@
 package bg.o.sim.application.web
 
 import org.bson.types.ObjectId
-import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.repository.MongoRepository
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 
-/**
- * Contains an ID member that will be used by the underlining MongoDB instance for indexing, fetching and identifying records.
- *
- * All items that are to be persisted *MUST* extend (directly or not) from BaseEntity!
- *
- * That also applies to *ALL* classes annotated with [ExposedModel][bg.o.sim.annotations.ExposedModel]!
- *
- * @since v0.1.0
- *
- * @author Simo Andreev <github.com/simo-andreev | simeon.zlatanov.andreev@gmail.com>
- */
-abstract class BaseEntity{
-    @Id var id : String? = null
-}
 
 /**
  * Provides default mappings for CRUD methods for a generic type [T].
@@ -43,7 +28,7 @@ abstract class BaseEntity{
  * @author Simo Andreev <github.com/simo-andreev | simeon.zlatanov.andreev@gmail.com>
  */
 abstract class CrudApiController<T : BaseEntity>(
-        private val repo: MongoRepository<T, String>
+    private val repo: MongoRepository<T, String>
 ) {
 
     /**
@@ -70,7 +55,7 @@ abstract class CrudApiController<T : BaseEntity>(
      */
     @RequestMapping(path = ["/update/{id}"], method = [RequestMethod.PUT])
     fun update(@RequestParam("id") id: String, @RequestBody @Valid entity: T): T =
-            repo.save(entity.apply { this.id = id })
+        repo.save(entity.apply { this.id = id })
 
     /**
      * Inserts a new record from passed [data][entity] and generates an ID for it.
@@ -81,7 +66,7 @@ abstract class CrudApiController<T : BaseEntity>(
      */
     @RequestMapping(path = ["/save"], method = [RequestMethod.POST])
     fun save(@RequestBody @Valid entity: T): T =
-            repo.save(entity.apply { this.id = ObjectId.get().toString() })
+        repo.save(entity.apply { this.id = ObjectId.get().toString() })
 
     /**
      * Deletes any records that match the passed [id]
